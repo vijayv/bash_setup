@@ -1,4 +1,35 @@
 # Useful Applications
+---
+### Windows
+**Install both Chocoloatey first. Install remaining items using Chocolatey.**
+
+#### Chocolatey
+The missing package manager for OS X.
+
+```
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+```
+
+#### Babun
+A better shell enviroment for windows.
+
+```
+choco install babun
+```
+
+#### VirtualBox
+Virtual machines ftw.
+
+```
+choco install virtualbox
+```
+
+#### Vagrant
+A virual machine provisioning and management tool.
+
+```
+choco install vagrant
+```
 
 ---
 ### OS X
@@ -6,7 +37,7 @@
 **Install both Homebrew and Homebrew Cask first. Install remaining items using Homebrew or Homebrew Cask.**
 
 #### Homebrew
-The missing package manager for OS X.
+The missing package manager for Windows.
 
 ```
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
@@ -94,4 +125,5 @@ VLC is a free and open source cross-platform multimedia player and framework tha
 brew cask install vlc
 ```
 
+---
 
