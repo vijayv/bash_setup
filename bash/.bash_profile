@@ -55,14 +55,14 @@ fi
 #  others.
 #  - Lowest priority first, highest priority last.
 export PATH=$PATH
-export PATH=$HOME/bin:$PATH
-export PATH=/usr/sbin:$PATH
-export PATH=/usr/bin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
+# export PATH=$HOME/bin:$PATH
+# export PATH=/usr/sbin:$PATH
+# export PATH=/usr/bin:$PATH
+# export PATH=/usr/local/bin:$PATH
+# export PATH=/usr/local/sbin:$PATH
 # added by Anaconda 2.1.0 installer
-export PATH="/Users/vijayv/anaconda/bin:$PATH"
+# export PATH="/Users/vijayv/anaconda/bin:$PATH"
 
 # See http://hackercodex.com/guide/mac-osx-mountain-lion-10.8-configuration/
 # Set architecture flags
-export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x86_64"
