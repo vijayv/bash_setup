@@ -11,7 +11,6 @@
 #  6.   Networking
 #  7.   System Operations & Information
 #  8.   Web Development
-#  9.   Remote Machines
 #  ---------------------------------------------------------------------------
 
 #   -------------------------------
@@ -20,30 +19,28 @@
 
 #   Change Prompt
 #   ------------------------------------------------------------
-    export PS1="________________________________________________________________________________\n| \w @ \h (\u) \n| => "
+    export PS1="____________________________________\n| \w @ \h (\u) \n| => "
     export PS2="| => "
 
 #   Set Paths
 #   ------------------------------------------------------------
     # pip should only run if there is a virtualenv currently activated
-#    Currently using Conda. So, this code is irrelevant.
-#    export PIP_REQUIRE_VIRTUALENV=true
-    
+    # export PIP_REQUIRE_VIRTUALENV=true
     # cache pip-installed packages to avoid re-downloading
-#    export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+    export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
     # The following are virtualenvwrapper
-#    export WORKON_HOME=$HOME/.virtualenvs
-#    export PROJECT_HOME=$HOME/Documents/Code
-#    source /usr/local/bin/virtualenvwrapper.sh
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/code
+    source /usr/local/bin/virtualenvwrapper.sh
 
 #    syspip(){
-#       PIP_REQUIRE_VIRTUALENV="" pip "$@"
-#    }
+       # PIP_REQUIRE_VIRTUALENV="" pip "$@"
+    #}
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
-    export EDITOR=/usr/bin/nano
+    export EDITOR=/usr/bin/vim
 
 #   Set default blocksize for ls, df, du
 #   from this: http://hints.macworld.com/comment.php?mode=view&cid=24491
@@ -54,8 +51,12 @@
 #   (this is all commented out as I use Mac Terminal Profiles)
 #   from http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
 #   ------------------------------------------------------------
-     export CLICOLOR=1
-     export LSCOLORS=ExFxBxDxCxegedabagacad
+#     export CLICOLOR=1
+#     export LSCOLORS=ExFxBxDxCxegedabagacad
+
+    if [ -f ~/.bashrc_custom ]; then
+      source ~/.bashrc_custom
+    fi
 
 
 #   -----------------------------
@@ -123,24 +124,6 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
 alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
 
-#   cdf:  'Cd's to frontmost window of MacOS Finder
-#   ------------------------------------------------------
-    cdf () {
-        currFolderPath=$( /usr/bin/osascript <<EOT
-            tell application "Finder"
-                try
-            set currFolder to (folder of the front window as alias)
-                on error
-            set currFolder to (path to desktop folder as alias)
-                end try
-                POSIX path of currFolder
-            end tell
-EOT
-        )
-        echo "cd to \"$currFolderPath\""
-        cd "$currFolderPath"
-    }
-
 #   extract:  Extract most know archives with one command
 #   ---------------------------------------------------------
     extract () {
@@ -172,10 +155,6 @@ EOT
     ff () { /usr/bin/find . -name "$@" ; }      # ff:       Find file under the current directory
     ffs () { /usr/bin/find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
     ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
-
-#   spotlight: Search for a file using MacOS Spotlight's metadata
-#   -----------------------------------------------------------
-    spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
 
 #   ---------------------------
 #   5.  PROCESS MANAGEMENT
@@ -246,24 +225,6 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 #   7.  SYSTEMS OPERATIONS & INFORMATION
 #   ---------------------------------------
 
-#   cleanupDS:  Recursively delete .DS_Store files
-#   -------------------------------------------------------------------
-    alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
-
-#   finderShowHidden:   Show hidden files in Finder
-#   finderHideHidden:   Hide hidden files in Finder
-#   -------------------------------------------------------------------
-    alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
-    alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
-
-#   cleanupLS:  Clean up LaunchServices to remove duplicates in the "Open With" menu
-#   -----------------------------------------------------------------------------------
-    alias cleanupLS="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
-
-#    screensaverDesktop: Run a screensaver on the Desktop
-#   -----------------------------------------------------------------------------------
-    alias screensaverDesktop='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background'
-
 #   ---------------------------------------
 #   8.  WEB DEVELOPMENT
 #   ---------------------------------------
@@ -278,14 +239,4 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   httpDebug:  Download a web page and show info on what took time
 #   -------------------------------------------------------------------
     httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n" ; }
-    
-#   ---------------------------------------
-#   9.  REMOTE MACHINES
-#   ---------------------------------------
-
-alias harb="ssh vijayv@harbinger.ischool.berkeley.edu"
-alias ocf="ssh vijayv@ssh.ocf.berkeley.edu"
-alias dms15="echo 'pw is: dm&a' && ssh info290t@dlab-matlab.berkeley.edu"
-
-
 
