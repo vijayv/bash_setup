@@ -1,0 +1,15 @@
+# Path Updates 
+export PATH="/c/Anaconda3/:/c/Anaconda3/Scripts/:/c/Anaconda3/library/bin;":$PATH
+export ATOM_HOME="/c/Users/vijay/.atom"
+
+# Helpful commands
+# preferred options for commands
+alias ll="ls -la"
+alias atom=atom.cmd
+alias apm=apm.cmd
+alias devm="cd /c/VM/Ubuntu1404"
+alias code="cd /c/Users/vijay/code" 
+
+# remote machines
+alias harb="ssh vijayv@harbinger.ischool.berkeley.edu"
+alias ocf="ssh vijayv@ssh.ocf.berkeley.edu"
