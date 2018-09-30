@@ -65,4 +65,9 @@ export PATH=$PATH
 
 # See http://hackercodex.com/guide/mac-osx-mountain-lion-10.8-configuration/
 # Set architecture flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x86_64
+
+# Immediately update .bash_history across multiple tabs
+HISTSIZE=130000 HISTFILESIZE=-1
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -n" # immediately update bash history"
