@@ -5,4 +5,4 @@
 - Move dock to left side
 - Turn on auto-hide
 - Turn off auto-hide animation
-  -```defaults write com.apple.dock autohide-time-modifier -int 0;killall Dock```
+  - ```defaults write com.apple.dock autohide-time-modifier -int 0;killall Dock```
