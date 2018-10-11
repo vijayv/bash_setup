@@ -6,3 +6,7 @@
 - Turn on auto-hide
 - Turn off auto-hide animation
   - ```defaults write com.apple.dock autohide-time-modifier -int 0;killall Dock```
+
+## Dev Setup
+Preferred Atom Snytax Theme: Gruvbox Plus
+Preferred Iterm2 Theme: earthsong
