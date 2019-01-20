@@ -37,10 +37,15 @@ choco install vagrant
 **Install both Homebrew and Homebrew Cask first. Install remaining items using Homebrew or Homebrew Cask.**
 
 #### Homebrew
-The missing package manager for Windows.
-
+Homebrew install by default in `usr/local` but this sometimes conflicts with other packages. This will instead install homebrew in `/opt/homebrew` directory:
 ```
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+sudo mkdir /opt/homebrew
+sudo chown `whoami` /opt/homebrew
+curl -sSLf -o homebrew-installer https://raw.githubusercontent.com/Homebrew/install/master/install
+perl -pi -e s,/usr/local,/opt/homebrew, homebrew-installer
+ruby homebrew-installer
+rm homebrew-installer
+echo '$PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"' >> ~/.bashrc
 brew doctor
 ```
 
