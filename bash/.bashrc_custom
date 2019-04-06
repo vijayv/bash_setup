@@ -1,7 +1,7 @@
 # connect to tmux on start
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux new-session -A -s main
-fi
+#if command -v tmux>/dev/null; then
+#  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux new-session -A -s main
+#fi
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -9,4 +9,4 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 # Work around for making python3 default
 # alias python=python3
-#alias pip=pip3
+# alias pip=pip3
