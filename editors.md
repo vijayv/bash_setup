@@ -6,3 +6,4 @@
 
 #### Dark
 - Gruvbox Dark
+- Earthsong (for Iterm)
