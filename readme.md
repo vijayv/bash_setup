@@ -6,17 +6,16 @@ Collection of dotfiles and preferred setups for dev env
 
 1. Clone the Repo
 2. Install Package Manager
-[IF OSX]
-  - [Homebrew](brew.sh)
-  - [Homebrew Cask](https://caskroom.github.io/)
-[ELSE IF WINDOWS]
-  - [Chocolatey](https://chocolatey.org/)
-  - [Windows Terminal]()
-  - [WSL]()
-
+3. 
+  - [IF OSX]
+    - [Homebrew](brew.sh)
+    - [Homebrew Cask](https://caskroom.github.io/)
+  - [IF WINDOWS]
+    - [Chocolatey](https://chocolatey.org/)
+    - [Windows Terminal]()
+    - [WSL]()
 
 ## Key Bindings
-
 ### tmux
 https://github.com/gpakosz/.tmux
 
